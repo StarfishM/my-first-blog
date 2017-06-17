@@ -9,13 +9,13 @@
  <div>
             <h1><a href="https://djangogirls.org/" target="_blank"">Django Girls Blog</a></h1>
         </div>
-
-        <div>
-            <p>published: 14.06.2014, 12:14</p>
-            <h2><a href="">This is my very first post ever</a></h2>
-            <p>Here will go some jibberish we will later fill with content hopefully?! so let's just add some LoremIpsum </p>
-        </div>
-
+    {% for post in posts %}
+    <div>
+        <p>published: {{ post.published_date }}</p>
+        <h1><a href="">{{ post.title }}</a></h1>
+        <p>{{ post.text|linebreaksbr }}</p>
+    </div>
+{% endfor %}
 
 
 </html>
