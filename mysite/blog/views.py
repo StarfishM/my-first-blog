@@ -13,10 +13,6 @@ from .forms import PostForm
 from django.shortcuts import redirect
 
 # Create your views here.
-def login(request):
-    return render(request, 'registration/login.html', {})
-
-    
 
 def post_list(request):
     return render(request, 'blog/post_list.html', {})
