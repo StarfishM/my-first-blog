@@ -29,9 +29,9 @@
         <strong>{{ comment.author }}</strong>
         <p>{{ comment.text|linebreaks }}</p>
     </div>
-        {% endif %}
-    {% empty %}
-        <p>No comments here yet, but feel free to leave one :)</p>
-    {% endfor %}
+    {% endif %}
+{% empty %}
+    <p>No comments here yet :( but feel free to submit one for revision</p>
+{% endfor %}
 {% endblock %}           
         
