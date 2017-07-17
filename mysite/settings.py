@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '8j8+#8^@fuj4xwcnrxh@cq7i$ryz+&3#x70t7jylkyg1ve8%sc'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['127.0.0.1', 'simplysaym.pythonanywhere.com']
 
@@ -135,6 +135,7 @@ DATABASES['default'] = dj_database_url.config()
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 ALLOWED_HOSTS = ['*']
+
 
 try:
     from .local_settings import *
