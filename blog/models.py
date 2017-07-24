@@ -2,9 +2,15 @@ from django.db import models
 from django.utils import timezone
 
 
-LANGUAGES = (("EN", "English"), ("DE", "Deutsch"))
+
 
 class Post(models.Model):
+    ENGLISH='EN'
+    GERMAN='DE'
+    LANGUAGES = (
+        (ENGLISH, "English"),
+        (GERMAN, "Deutsch")
+    )
     author = models.ForeignKey('auth.User')
     language = models.CharField(choices=LANGUAGES, default="EN", max_length=20)
     title = models.CharField(max_length=200)
