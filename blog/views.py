@@ -1,9 +1,10 @@
 from django.contrib.auth.decorators import login_required
 from django.utils import timezone
-from .models import Post, Comment
+from .models import Post, Comment, Image
 from django.shortcuts import render, get_object_or_404
-from .forms import PostForm, CommentForm
+from .forms import PostForm, CommentForm, ImageForm
 from django.shortcuts import redirect
+
 
 # Create your views here.
 # views without auhentification
@@ -102,3 +103,17 @@ def comment_remove(request, pk):
     comment = get_object_or_404(Comment, pk=pk)
     comment.delete()
     return redirect('post_detail', pk=comment.post.pk)
+
+
+@login_required()
+def image_upload(request):
+    if request.method == "POST":
+        form = ImageForm(request.POST, request.FILES)
+        if form.is_valid():
+            image = Image(image=form.cleaned_data['image'])
+            image.save()
+            return redirect('post_list')
+    else:
+        form = ImageForm()
+
+    return render(request, 'blog/image_new.html', {'form': form})

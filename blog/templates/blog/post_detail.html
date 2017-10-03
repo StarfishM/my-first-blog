@@ -14,6 +14,7 @@
         <h1>{{ post.title }}</h1>
         <p>{{ post.text|linebreaksbr }}</p>
     </div>
+
     <hr>
     <a class="btn btn-default" href="{% url 'add_comment_to_post' pk=post.pk %}">Add comment</a>
     {% for comment in post.comments.all %}
@@ -34,4 +35,3 @@
         <p>No comments here yet :( but feel free to submit one for revision</p>
     {% endfor %}
 {% endblock %}           
-        
