@@ -19,6 +19,7 @@ AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
 AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
 AWS_STORAGE_BUCKET_NAME = 'heroku-bilder'
 AWS_S3_URL = os.environ.get('AWS_S3_URL')
+AWS_S3_HOST = 's3.eu-central-1.amazonaws.com'
 DEFAULT_FILE_STORAGE = os.environ.get('DEFAULT_FILE_STORAGE')
 
 MEDIA_DIRECTORY = '/media/'
