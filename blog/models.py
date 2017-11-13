@@ -1,5 +1,7 @@
 from django.db import models
 from django.utils import timezone
+from markdownx.models import MarkdownxField
+from markdownx.utils import markdownify
 
 
 class Post(models.Model):
@@ -12,12 +14,19 @@ class Post(models.Model):
     author = models.ForeignKey('auth.User')
     language = models.CharField(choices=LANGUAGES, default="EN", max_length=20)
     title = models.CharField(max_length=200)
-    text = models.TextField()
+    text = MarkdownxField()
+    #text = models.TextField()
     created_date = models.DateTimeField(
             default=timezone.now)
     published_date = models.DateTimeField(
             blank=True, null=True)
 
+    @property
+    def formatted_markdown(self):
+        return markdownify(self.text)
+
+    def __unicode__(self):
+        return self.title
 
     def publish(self):
         self.published_date = timezone.now()

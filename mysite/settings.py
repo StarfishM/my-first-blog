@@ -29,7 +29,7 @@ MEDIA_URL = AWS_S3_URL
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('ANOTHER_KEY')
+SECRET_KEY = '8j8+#8^@fuj4xwcnrxh@cq7i$ryz+&3#x70t7jylkyg1ve8%sc#'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -46,7 +46,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
     'blog',
+    'markdownx',
     'storages',
 ]
 
