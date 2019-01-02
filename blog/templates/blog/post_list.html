@@ -9,7 +9,10 @@
                 {{ post.published_date }}
             </div>
             <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
+            <div class="excerpt">
             <p>{{ post.formatted_markdown|safe }}</p>
+            </div>
+            <a href="{% url 'post_detail' pk=post.pk %}"> ... </a><br>
             <a href="{% url 'post_detail' pk=post.pk %}">Comments: {{ post.approved_comments.count }}</a>
         </div>
     {% endfor %}
